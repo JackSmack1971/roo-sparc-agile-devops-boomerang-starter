@@ -158,30 +158,30 @@ flowchart TD
     
     subgraph "Phase Groups"
         direction TB
-        subgraph "Planning"
+        subgraph Planning
             Spec
             Research
             FactCheck
         end
         
-        subgraph "Design"
+        subgraph Design
             Arch
             SecArch
             Pseudo
         end
         
-        subgraph "Development"
+        subgraph Development
             TDD
             Impl
             QA
         end
         
-        subgraph "Security & Quality"
+        subgraph SecurityQuality ["Security & Quality"]
             Adversary
             Reviewer
         end
         
-        subgraph "Deployment"
+        subgraph Deployment
             Integrate
             Platform
             SRE
@@ -191,7 +191,7 @@ flowchart TD
     style Planning fill:#e1f5fe
     style Design fill:#f3e5f5
     style Development fill:#e8f5e8
-    style "Security & Quality" fill:#fff3e0
+    style SecurityQuality fill:#fff3e0
     style Deployment fill:#fce4ec
 ```
 
