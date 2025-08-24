@@ -41,7 +41,7 @@ The Roo SPARC—Agile—DevOps Boomerang Starter is a **turnkey AI-orchestrated 
 - **Specialized AI Modes** - 15+ specialized agents for different development phases
 - **Contract System** - Formal handoff contracts with acceptance criteria and artifact tracking
 - **State Management** - Real-time workflow state with persistence and recovery
-- **MCP Integration** - Model Context Protocol support for external AI services
+- **MCP Integration** - Model Context Protocol services configured within Roo Code configured in Roo Code
 - **Agile Tooling** - Sprint planning, backlog management, and story tracking
 - **DevOps Automation** - Infrastructure as Code, CI/CD, and SRE practices
 - **Security Integration** - Threat modeling, security architecture, and adversarial testing
@@ -314,7 +314,7 @@ stateDiagram-v2
 ### Prerequisites
 - **VS Code** with Roo Code extension
 - **Node.js 18+** for validation scripts
-- **API Keys** for MCP services (optional but recommended)
+- **MCP Services** configured in Roo Code (optional but recommended)
 
 ### 30-Second Setup
 
@@ -380,15 +380,14 @@ chmod +x scripts/validate.sh
 
 #### 4. MCP Configuration (Optional)
 
-Set up API keys for enhanced functionality:
+Configure MCP servers directly within Roo Code for enhanced functionality:
 
-```bash
-# Create environment variables (add to your shell profile)
-export REF_API_KEY="your-ref-api-key"
-export CONTEXT7_API_KEY="your-context7-key"
-export EXA_API_KEY="your-exa-api-key"
-export SONAR_API_KEY="your-perplexity-key"
-```
+1. Open Roo Code Settings → MCP Servers
+2. Configure the following optional services:
+   - **Ref Tools** - For enhanced reference capabilities
+   - **Context7** - For documentation context
+   - **Exa** - For advanced web search
+   - **Perplexity (Sonar)** - For research and fact-checking
 
 See `docs/mcp/config.sample.md` for detailed MCP setup instructions.
 
@@ -546,8 +545,8 @@ roo-sparc-agile-devops-boomerang-starter/
 │   │   ├── 📊 state_v1.schema.json      # State management schema
 │   │   ├── 📋 backlog_v1.schema.json    # Backlog schema
 │   │   └── 🏃 sprint_v1.schema.json     # Sprint schema
-│   └── 🔧 mcp/                           # MCP configuration
-│       └── ⚙️ config.sample.md          # MCP setup instructions
+│   └── 🔧 mcp/                           # MCP integration guides
+│       └── ⚙️ config.sample.md          # Roo Code MCP setup instructions
 └── 🔧 scripts/                           # Automation and validation
     └── ✅ validate.sh                    # Schema validation script
 ```
@@ -559,7 +558,7 @@ roo-sparc-agile-devops-boomerang-starter/
 | `memory-bank/` | **Persistent Context** | Product vision, system patterns, decisions, progress |
 | `project/sample-app/control/` | **Orchestration Hub** | Workflow graph, state, handoffs, Agile artifacts |
 | `docs/contracts/` | **Schema Definitions** | JSON schemas for all contract types |
-| `docs/mcp/` | **External Integration** | MCP server configuration and API keys |
+| `docs/mcp/` | **MCP Integration** | Roo Code MCP server setup and configuration guides |
 | `scripts/` | **Automation** | Validation, testing, and utility scripts |
 
 ## 🔧 Configuration
@@ -624,15 +623,21 @@ policy:
 
 ### MCP Server Configuration
 
-Configure external AI services in your environment:
+Configure external AI services directly within Roo Code:
 
-```bash
-# Required for enhanced functionality
-export REF_API_KEY="your-ref-tools-api-key"
-export CONTEXT7_API_KEY="your-context7-api-key"
-export EXA_API_KEY="your-exa-search-api-key"
-export SONAR_API_KEY="your-perplexity-api-key"
-```
+1. **Open Roo Code Settings**: Go to Settings → MCP Servers
+2. **Configure Services**: Set up the following optional services:
+   - **Ref Tools** (`ref-tools`) - Enhanced reference and lookup capabilities
+   - **Context7** (`context7`) - Documentation context and code analysis
+   - **Exa** (`exa`) - Advanced AI-powered web search
+   - **Perplexity** (`sonar`) - Research and fact-checking capabilities
+
+3. **Service Usage**: These MCP servers are automatically used by relevant agents:
+   - `data-researcher` → Uses Exa and Perplexity for research
+   - `sparc-autonomous-adversary` → Uses Context7 and Ref for security analysis
+   - Other agents → Access services as needed for their specialized tasks
+
+**Note**: MCP services are optional but significantly enhance the capabilities of research, fact-checking, and adversarial testing phases.
 
 ### Validation and Quality
 
