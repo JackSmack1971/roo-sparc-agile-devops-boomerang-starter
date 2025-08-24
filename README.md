@@ -284,7 +284,7 @@ classDiagram
     HandoffContract --> ToAgent
     HandoffContract --> NextStep
     StateManager --> NodeStatus
-    HandoffContract -.-> StateManager : updates
+    HandoffContract ..> StateManager : updates
 ```
 
 ### Contract States
